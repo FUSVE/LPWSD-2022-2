@@ -1,4 +1,4 @@
-package br.edu.universidadedevassouras.SCP.model;
+package br.edu.universidadedevassouras.SCP.Model;
 
 
 import lombok.Data;
@@ -16,9 +16,9 @@ public class Pessoa {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idPessoa;
+    private Long idpessoa;
     @Column(nullable = false, unique = true)
-    private char CPF;
+    private String CPF;
     @Column(nullable = false)
     private String Nome;
     @Column(nullable = false, unique = true)
