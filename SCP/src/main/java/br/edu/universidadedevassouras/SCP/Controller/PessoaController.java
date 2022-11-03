@@ -9,6 +9,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/pessoa")
+@CrossOrigin
 public class PessoaController {
 
     @Autowired
@@ -37,7 +38,6 @@ public class PessoaController {
 
     @PutMapping
     public Pessoa putPessoa(@RequestBody Pessoa p){
-
         return pessoaDAO.save(p);
     }
 

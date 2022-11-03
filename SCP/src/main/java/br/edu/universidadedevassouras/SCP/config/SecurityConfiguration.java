@@ -13,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
 
 @Configuration
 @EnableWebSecurity
@@ -25,13 +26,15 @@ public class SecurityConfiguration{
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
 
         httpSecurity
+                .cors().disable()
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
                 .antMatchers("/login")
                 .permitAll()
                 .anyRequest()
-                .authenticated()
+                //.authenticated()
+                .permitAll()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);

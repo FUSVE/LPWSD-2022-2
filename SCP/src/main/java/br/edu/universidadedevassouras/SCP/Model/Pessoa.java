@@ -1,19 +1,18 @@
 package br.edu.universidadedevassouras.SCP.Model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
-public class Pessoa {
+public class Pessoa implements Serializable {
 
-    // linha
-    /*
-    bloco
-     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idpessoa;
@@ -30,5 +29,6 @@ public class Pessoa {
     @Column(nullable = true)
     @Lob
     private String Foto;
-
+    @OneToMany(mappedBy = "pessoa")
+    private List<Presenca> presencaList;
 }
